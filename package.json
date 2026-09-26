@@ -5,6 +5,9 @@
   "type": "module",
   "main": "dist/src/linter.js",
   "types": "dist/src/linter.d.ts",
+  "bin": {
+    "phone-format-linter": "dist/src/cli.js"
+  },
   "scripts": {
     "build": "tsc",
     "test": "tsc && node --test dist/test"

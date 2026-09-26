@@ -32,7 +32,18 @@ against.
 
 ## Usage
 
-There's no CLI yet (see Roadmap), so use it as a library:
+As a CLI, against one or more files:
+
+```
+node dist/src/cli.js contacts.csv config/support-numbers.txt
+```
+
+It prints one line per finding (`path:line:column ruleId - message`) to
+stdout and exits `0` if every file is clean, `1` if it found formatting
+problems, or `2` if a file couldn't be read - so it can be dropped straight
+into CI.
+
+Or as a library:
 
 ```ts
 import { readFileSync } from 'node:fs';
@@ -72,8 +83,6 @@ built-in test runner.
 
 ## Roadmap
 
-- CLI entry point (`phone-format-linter path/to/file`) with an exit code
-  for CI
 - support for international formats beyond NANP
 - ignore/disable comments for lines that are intentionally non-standard
 - autofix mode that rewrites separators to a chosen style
